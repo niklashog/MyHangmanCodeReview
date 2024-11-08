@@ -6,15 +6,15 @@
         {
             string[] words = { "programmering", "utveckling", "lärande", "teknik", "dator" };
             Random random = new Random();
-            string wordToGuess = words[random.Next(words.Length)];
+            string wordToGuess = words[random.Next(words.Length+1)];
             char[] guessedWord = new string('_', wordToGuess.Length).ToCharArray();
-            int lives = 6;
+            var lives = 5.0;
             List<char> guessedLetters = new List<char>();
 
             Console.WriteLine("Välkommen till Hänga gubbe!");
             Console.WriteLine("Du har totalt 6 liv. Gissa bokstäver för att hitta rätt ord.");
 
-            while (lives > 0 && new string(guessedWord) != wordToGuess)
+            while (lives > 0 && new string(guessedWord) == wordToGuess)
             {
                 Console.WriteLine("\nOrdet: " + new string(guessedWord));
                 Console.WriteLine("Gissade bokstäver: " + string.Join(", ", guessedLetters));
