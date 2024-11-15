@@ -11,9 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace HangmanCodeReview
 {
-    public class Game (
-        IWordGenerator randomWord
-        ): IGame
+    public class Game: IGame
     {
         private List<char> _guessedLetters;
         public Game()
@@ -23,12 +21,13 @@ namespace HangmanCodeReview
 
         public void Run()
         {
-            //var randomWord = FactoryOne.Resolve<IWordGenerator>();
+            var randomWord = FactoryOne.Resolve<IWordGenerator>();
             var hangmanVisual = FactoryOne.Resolve<IHangmanVisual>();
             var life = FactoryOne.Resolve<ILives>();
             var gameover = FactoryOne.Resolve<IGameOverScreen>();
             var lifeText = FactoryOne.Resolve<IWrongGuessPrompt>();
             var duplicateGuess = FactoryOne.Resolve<IDuplicateGuess>();
+            var victory = FactoryOne.Resolve<IVictory>();
 
             var lives = life.NumberOfLives();
             var wordToGuess = randomWord.Generate();
@@ -71,8 +70,7 @@ namespace HangmanCodeReview
             Console.Clear();
             if (lives > 0)
             {
-
-                
+                victory.VictoryScreen();
             }
             else
             {

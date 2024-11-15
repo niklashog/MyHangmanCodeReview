@@ -8,5 +8,6 @@ namespace HangmanCodeReview.Interfaces
 {
     public interface IVictory
     {
+        public void VictoryScreen();
     }
 }

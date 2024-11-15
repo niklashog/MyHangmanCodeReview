@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HangmanCodeReview
+namespace HangmanCodeReview.GameLogic
 {
     public class Lives : ILives
     {

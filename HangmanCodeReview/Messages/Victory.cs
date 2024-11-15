@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HangmanCodeReview
+namespace HangmanCodeReview.Messages
 {
     public class Victory : IVictory
     {
-        public void VictoryChoice()
+        public void VictoryScreen()
         {
             var pamela = FactoryOne.Resolve<IPrintPamela>();
             var david = FactoryOne.Resolve<IPrintDavid>();

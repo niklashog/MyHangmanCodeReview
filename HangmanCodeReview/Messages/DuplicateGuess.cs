@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HangmanCodeReview.Factories;
 
-namespace HangmanCodeReview
+namespace HangmanCodeReview.Messages
 {
     public class DuplicateGuess : IDuplicateGuess
     {

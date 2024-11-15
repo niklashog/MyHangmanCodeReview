@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using HangmanCodeReview.Interfaces;
 
-namespace HangmanCodeReview
+namespace HangmanCodeReview.Messages
 {
     public class WelcomeMessage : IWelcomeMessage
     {
         public string Print()
         {
-            string message = 
+            string message =
                 "Välkommen till Hänga gubbe!\n" +
                 "Du har totalt 6 liv. Gissa bokstäver för att hitta rätt ord.\n" +
                 "Tryck valfri tangent för att börja spela";

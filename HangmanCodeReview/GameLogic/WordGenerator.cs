@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HangmanCodeReview.Interfaces;
 
-namespace HangmanCodeReview
+namespace HangmanCodeReview.GameLogic
 {
     public class WordGenerator : IWordGenerator
     {
