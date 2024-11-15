@@ -15,7 +15,7 @@ namespace HangmanCodeReview.Factories
         public static void BuildContainer()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<Game>().As<IGame>();
+            builder.RegisterType<Game>().As<IGame>().As<IPrintDavid>();
             builder.RegisterType<Lives>().As<ILives>();
             builder.RegisterType<WelcomeMessage>().As<IWelcomeMessage>();
             builder.RegisterType<WordGenerator>().As<IWordGenerator>();
@@ -23,6 +23,8 @@ namespace HangmanCodeReview.Factories
             builder.RegisterType<GameOverScreen>().As<IGameOverScreen>();
             builder.RegisterType<WrongGuessPrompt>().As<IWrongGuessPrompt>();
             builder.RegisterType<DuplicateGuess>().As<IDuplicateGuess>();
+            builder.RegisterType<PrintPamela>().As<IPrintPamela>();
+            builder.RegisterType<PrintDavid>().As<IPrintDavid>();
 
             _container = builder.Build();
         }

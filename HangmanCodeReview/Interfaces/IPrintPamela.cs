@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace HangmanCodeReview.Interfaces
 {
-    public interface IGame
+    public interface IPrintPamela : IPrintToConsole
     {
-        public void Run();
     }
 }

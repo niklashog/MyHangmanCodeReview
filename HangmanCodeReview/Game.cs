@@ -6,44 +6,48 @@ using System.Threading.Tasks;
 using HangmanCodeReview.Interfaces;
 using HangmanCodeReview.Factories;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 
 namespace HangmanCodeReview
 {
-    public class Game : IGame
+    public class Game (
+        IWordGenerator randomWord
+        ): IGame
     {
-
-        public void StartGame()
+        private List<char> _guessedLetters;
+        public Game()
         {
-            var randomWord = FactoryOne.Resolve<IWordGenerator>();
+            _guessedLetters = new List<char>();
+        }
+
+        public void Run()
+        {
+            //var randomWord = FactoryOne.Resolve<IWordGenerator>();
             var hangmanVisual = FactoryOne.Resolve<IHangmanVisual>();
             var life = FactoryOne.Resolve<ILives>();
             var gameover = FactoryOne.Resolve<IGameOverScreen>();
             var lifeText = FactoryOne.Resolve<IWrongGuessPrompt>();
             var duplicateGuess = FactoryOne.Resolve<IDuplicateGuess>();
 
-            var guessedLetters = new List<char>();
-
             var lives = life.NumberOfLives();
             var wordToGuess = randomWord.Generate();
             var guessedWord = new string('_', wordToGuess.Length).ToCharArray();
 
-            while (lives >= 0 && new string(guessedWord) != wordToGuess)
+            while (lives > 0 && new string(guessedWord) != wordToGuess)
             {
                 Console.Clear();
                 Console.WriteLine("\nOrdet: " + new string(guessedWord));
-                Console.WriteLine("Gissade bokstäver: " + string.Join(", ", guessedLetters));
+                Console.WriteLine("Gissade bokstäver: " + string.Join(", ", _guessedLetters));
                 Console.WriteLine($"Liv kvar: {lives}");
                 hangmanVisual.Visualize(lives);
                 Console.Write("Gissa en bokstav: ");
 
                 char guess = Console.ReadLine().ToLower()[0];
 
-                Console.WriteLine(duplicateGuess.PrintsIfDuplicate(guessedLetters, guess));
+                Console.WriteLine(duplicateGuess.PrintsIfDuplicate(_guessedLetters, guess));
 
-                //Om 
-
-                guessedLetters.Add(guess);
+                _guessedLetters.Add(guess);
 
                 if (wordToGuess.Contains(guess))
                 {
@@ -62,7 +66,18 @@ namespace HangmanCodeReview
                     lives--;
                     Console.WriteLine(lifeText.LivesOutputText(lives));
                     Console.ReadLine();
-                }                
+                }
+            }
+            Console.Clear();
+            if (lives > 0)
+            {
+
+                
+            }
+            else
+            {
+                hangmanVisual.Visualize(lives);
+                Console.WriteLine($"Rätt ord var: {randomWord.Generate().ToString()}");
             }
         }
     }

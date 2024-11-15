@@ -16,9 +16,10 @@ namespace HangmanCodeReview
                 case 6:
                     Console.WriteLine(@"
                 ------
-                |   o
-                |  /|\
-                |  / \
+                |   |
+                |
+                |
+                |
                 |
                 -------
                 ");
@@ -26,9 +27,10 @@ namespace HangmanCodeReview
                 case 5:
                     Console.WriteLine(@"
                 ------
+                |   |
                 |   o
-                |  /|\
-                |  / 
+                |
+                |
                 |
                 -------
                 ");
@@ -36,9 +38,10 @@ namespace HangmanCodeReview
                 case 4:
                     Console.WriteLine(@"
                 ------
+                |   |
                 |   o
-                |   |\
-                |  / 
+                |   |
+                |
                 |
                 -------
                 ");
@@ -46,9 +49,10 @@ namespace HangmanCodeReview
                 case 3:
                     Console.WriteLine(@"
                 ------
+                |   |
                 |   o
                 |   |\
-                |  
+                |
                 |
                 -------
                 ");
@@ -56,9 +60,10 @@ namespace HangmanCodeReview
                 case 2:
                     Console.WriteLine(@"
                 ------
-                |   o
                 |   |
-                |  
+                |   o
+                |   |\
+                |  /
                 |
                 -------
                 ");
@@ -66,19 +71,21 @@ namespace HangmanCodeReview
                 case 1:
                     Console.WriteLine(@"
                 ------
+                |   |
                 |   o
+                |  /|\
+                |  /
                 |
-                |  
-                |
-                ------
+                -------
                 ");
                     break;
                 case 0:
                     Console.WriteLine(@"
                 ------
-                |   
-                | Game
-                | Over
+                |   |
+                |   o   
+                |  /|\  Game
+                |  / \  Over
                 |
                 ------
                 ");
